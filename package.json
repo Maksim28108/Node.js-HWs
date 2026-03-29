@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon server",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maksim28108/Node.js-HWs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maksim28108/Node.js-HWs/issues"
+  },
+  "homepage": "https://github.com/Maksim28108/Node.js-HWs#readme",
+  "dependencies": {
+    "fastify": "^5.8.4",
+    "fastify-type-provider-zod": "^6.1.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "vitest": "^4.1.1"
+  }
+}
