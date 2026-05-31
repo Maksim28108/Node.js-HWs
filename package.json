@@ -1,25 +1,14 @@
 {
-  "name": "backend",
+  "name": "pizza-monorepo",
   "version": "1.0.0",
-  "type": "module",
+  "private": true,
+  "workspaces": ["packages/*"],
   "description": "",
-  "main": "server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon server",
+    "start:shipment": "node src/server.js",
+    "start:ordering": "node packages/pizza-ordering-service/src/server.js",
     "test": "vitest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Maksim28108/Node.js-HWs.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Maksim28108/Node.js-HWs/issues"
-  },
-  "homepage": "https://github.com/Maksim28108/Node.js-HWs#readme",
   "dependencies": {
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
