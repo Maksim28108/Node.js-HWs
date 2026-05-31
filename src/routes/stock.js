@@ -1,8 +1,14 @@
 import { z } from "zod";
+import { registerShipment } from "../services/shipmentService.js";
 
 const stockSchema = z.object({
-  ingredient: z.string(),
-  quantity: z.number(),
+  targetWarehouse: z.string(),
+  ingredients: z.array(
+    z.object({
+      id: z.string(),
+      units: z.number(),
+    }),
+  ),
 });
 
 export default function stockRoute(app) {
@@ -14,7 +20,13 @@ export default function stockRoute(app) {
       },
     },
     async (request, reply) => {
-      return reply.status(200).send({ message: "Stock received" });
+      try {
+        const { targetWarehouse, ingredients } = request.body;
+        const shipments = await registerShipment(targetWarehouse, ingredients);
+        return reply.status(200).send({ shipments });
+      } catch (err) {
+        return reply.status(400).send({ error: err.message });
+      }
     },
   );
 }

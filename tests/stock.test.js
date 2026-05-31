@@ -24,7 +24,10 @@ describe("POST /stock", () => {
     const response = await app.inject({
       method: "POST",
       url: "/stock",
-      payload: { ingredient: "flour", quantity: 50 },
+      payload: {
+        targetWarehouse: "testWarehouse",
+        ingredients: [{ id: "flour", units: 50 }],
+      },
     });
 
     expect(response.statusCode).toBe(200);
