@@ -2,7 +2,9 @@
   "name": "pizza-monorepo",
   "version": "1.0.0",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "description": "",
   "scripts": {
     "start:shipment": "node src/server.js",
@@ -15,6 +17,7 @@
     "fastify": "^5.8.4",
     "fastify-type-provider-zod": "^6.1.0",
     "pg": "^8.20.0",
+    "pg-boss": "^12.22.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {

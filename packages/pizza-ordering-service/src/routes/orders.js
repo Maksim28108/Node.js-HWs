@@ -6,6 +6,7 @@ import {
   markOrderReadyResponseSchema,
 } from "pizza-ordering-contracts";
 import { createOrder, markOrderReady } from "../orders.js";
+import { scheduleStaleCheck } from "../jobs/staleOrderJob.js";
 
 const errorResponseSchema = z.object({ error: z.string() });
 
@@ -21,6 +22,7 @@ export default function ordersRoute(app) {
     async (request, reply) => {
       const { pizzaType, amount } = request.body;
       const order = createOrder({ pizzaType, amount });
+      await scheduleStaleCheck(order.id);
       return reply.status(201).send(order);
     },
   );

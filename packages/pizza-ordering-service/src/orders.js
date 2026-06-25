@@ -26,3 +26,13 @@ export function markOrderReady(id) {
   order.readyAt = new Date().toISOString();
   return order;
 }
+
+export function markOrderStale(id) {
+  const order = orders.get(id);
+  if (!order) return null;
+  // Only mark stale if order is still pending (not yet ready/done)
+  if (order.status !== "pending") return order;
+  order.status = "stale";
+  order.staleAt = new Date().toISOString();
+  return order;
+}

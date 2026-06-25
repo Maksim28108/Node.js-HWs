@@ -8,6 +8,13 @@
       "when": 1776990899382,
       "tag": "0000_chubby_frightful_four",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1751846400000,
+      "tag": "0001_add_shipment_created_at",
+      "breakpoints": true
     }
   ]
 }
